@@ -1,3 +1,7 @@
+output "postgresql_databases_id" {
+  description = "Map of id values across all postgresql_databases, keyed the same as var.postgresql_databases"
+  value       = { for k, v in azurerm_postgresql_database.postgresql_databases : k => v.id }
+}
 output "postgresql_databases_charset" {
   description = "Map of charset values across all postgresql_databases, keyed the same as var.postgresql_databases"
   value       = { for k, v in azurerm_postgresql_database.postgresql_databases : k => v.charset }
